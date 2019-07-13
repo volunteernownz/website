@@ -1,6 +1,5 @@
 <template>
-  <v-app>
-
+  <v-app class="container">
     <v-content>
       <v-container>
         <nuxt />
@@ -25,3 +24,9 @@ export default {
   }
 };
 </script>
+<style>
+
+  .container {
+    background-color: transparent;
+  }
+</style>

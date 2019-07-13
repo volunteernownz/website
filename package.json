@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "golive": "git subtree push --prefix dist pages master"
+    "golive": "git push pages `git subtree split --prefix dist master`:master --force"
   },
   "dependencies": {
     "@nuxtjs/vuetify": "0.5.5",

@@ -1,8 +1,7 @@
 <template>
       <v-bottom-nav
-      absolute
+      fixed
       :value="true"
-      color="transparent"
     >
       <v-btn
         color="teal"
