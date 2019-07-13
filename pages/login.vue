@@ -1,8 +1,8 @@
 <template>
   <v-card class="my-4">
-    <v-card-title d-block class="headline text-xs-center">Signup</v-card-title>
+    <v-card-title d-block class="headline text-xs-center">Login</v-card-title>
     <v-card-text>
-      <signup-form />
+      <login-form />
     </v-card-text>
     <v-card-actions>
     </v-card-actions>
@@ -10,9 +10,9 @@
 </template>
 <script>
 import Logo from "~/components/Logo.vue";
-import SignupForm from "~/components/SignupForm.vue";
+import LoginForm from "~/components/LoginForm.vue";
 export default {
-  name: "SignupPage",
-  components: { Logo, SignupForm },
+  name: "LoginPage",
+  components: { Logo, LoginForm },
 };
 </script>
