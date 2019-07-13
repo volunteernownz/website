@@ -5,7 +5,7 @@
         <v-flex xs12 md4>
           <v-text-field placeholder="email" v-model="email" />
           <v-text-field type="password" v-model="password" placeholder="Password" />
-          <v-btn @click="signup">Sign Up</v-btn>
+          <v-btn @click="login">Login</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -15,7 +15,7 @@
 import firebase from 'firebase';
 
 export default {
-  name: 'SignupForm',
+  name: 'LoginForm',
   data() {
     return {
       email: '',
@@ -23,8 +23,8 @@ export default {
     }
   },
   methods: {
-    signup: function() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+    login: function() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         (user) => {
           this.$router.replace('/')
         },
