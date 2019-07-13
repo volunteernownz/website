@@ -37,7 +37,11 @@ export default {
       title: "Vuetify.js",
       fixed: true
     };
-  }
+  },
+
+  created() {
+    this.$store.commit('user/rehydrate');
+  },
 };
 </script>
 <style>

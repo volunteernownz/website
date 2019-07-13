@@ -27,7 +27,13 @@ export default {
   components: {
     UserProfile,
     JobList,
-  }
+  },
+
+  beforeCreate() {
+    if (!this.$store.state.user.email) {
+      this.$router.replace('/login');
+    }
+  },
 };
 </script>
 <style>
