@@ -17,7 +17,6 @@
 
 <script>
 import MailchimpForm from "~/components/MailchimpForm.vue";
-import { fireDb } from "~/plugins/firebase.js";
 
 export default {
   components: {

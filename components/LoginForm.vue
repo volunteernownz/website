@@ -1,11 +1,14 @@
 <template>
-  <v-form>
+  <v-form @submit.prevent="login">
     <v-container class="pa-0">
+      <v-alert color="pink darken-2" type="warning" :value="warningValue">
+        {{warningValue}}
+      </v-alert>
       <v-layout>
         <v-flex xs12 md4>
           <v-text-field placeholder="email" v-model="email" />
-          <v-text-field type="password" v-model="password" placeholder="password" />
-          <v-btn @click="login">Login</v-btn>
+          <v-text-field type="password" v-model="password" placeholder="Password" />
+          <v-btn type="submit" :loading="loading">Login</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -19,17 +22,24 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      loading: false,
+      warningValue: false,
     }
   },
   methods: {
     login: function() {
+      this.loading = true;
+      this.warningValue = false;
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-        (user) => {
-          this.$router.replace('/')
+        ({user}) => {
+          this.$store.commit('user/loginUser', user);
+          this.$router.push('/dashboard');
+          this.loading = false;
         },
         (err) => {
-          alert('Oops. ' + err.message)
+          this.warningValue = 'Oops. ' + err.message;
+          this.loading = false;
         }
       );
     }
