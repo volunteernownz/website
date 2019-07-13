@@ -1,45 +1,29 @@
 <template>
-  <v-layout
-    row
-    wrap
-    justify-center
-    align-center
-  >
-    <v-flex>
-      <div class="text-xs-center">
-        <logo />
-      </div>
-      <v-card class="my-4">
-        <v-card-title
-          d-block
-          class="headline text-xs-center"
-        >
-          Volunteer Now
-        </v-card-title>
-        <v-card-text>
-          <p>Our idea is still taking a shape. Subscribe to updates below to hear about the result!</p>
-          <mailchimp-form />
-        </v-card-text>
-        <v-card-actions>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-card class="my-4">
+    <v-card-title
+      d-block
+      class="headline text-xs-center"
+    >
+      Volunteer Now
+    </v-card-title>
+    <v-card-text>
+      <p>Our idea is still taking a shape. Subscribe to updates below to hear about the result!</p>
+      <mailchimp-form />
+    </v-card-text>
+    <v-card-actions>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import MailchimpForm from '~/components/MailchimpForm.vue';
-import {fireDb} from '~/plugins/firebase.js'
+import MailchimpForm from "~/components/MailchimpForm.vue";
+import { fireDb } from "~/plugins/firebase.js";
 
 export default {
   components: {
-    Logo,
-    MailchimpForm,
-  },
-
+    MailchimpForm
+  }
 };
 </script>
 <style>
-
 </style>

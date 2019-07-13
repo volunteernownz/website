@@ -1,14 +1,5 @@
 <template>
-  <v-layout
-    row
-    wrap
-    justify-center
-    align-center
-  >
-    <v-flex>
-      <div class="text-xs-center">
-        <logo />
-      </div>
+
       <v-card class="my-4">
         <v-card-title
           d-block
@@ -22,8 +13,7 @@
         <v-card-actions>
         </v-card-actions>
       </v-card>
-    </v-flex>
-  </v-layout>
+
 </template>
 <script>
 import Logo from "~/components/Logo.vue";
