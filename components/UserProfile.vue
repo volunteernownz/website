@@ -15,6 +15,7 @@
           User Name
         </v-card-title>
         <v-card-text>
+          <em>{{ $store.state.user.email }}</em><br />
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, vero.
         </v-card-text>
       </v-flex>

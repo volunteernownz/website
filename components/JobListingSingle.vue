@@ -6,7 +6,7 @@
       </v-flex>
       <v-flex shrink>
         <v-card-actions>
-          <v-btn>Apply</v-btn>
+          <v-btn color="purple darken-4 white--text">Apply</v-btn>
         </v-card-actions>
       </v-flex>
     </v-layout>
