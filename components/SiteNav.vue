@@ -4,7 +4,7 @@
       :value="true"
     >
       <v-btn
-        color="teal"
+        color="purple darken-4"
         flat
         nuxt
         to="/"
