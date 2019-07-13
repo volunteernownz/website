@@ -2,7 +2,21 @@
   <v-app class="container">
     <v-content>
       <v-container>
-        <nuxt />
+        <v-layout
+          row
+          wrap
+          justify-center
+          align-center
+        >
+          <v-flex>
+            <div class="text-xs-center">
+              <nuxt-link to="/">
+                <logo />
+              </nuxt-link>
+            </div>
+            <nuxt />
+          </v-flex>
+        </v-layout>
       </v-container>
     </v-content>
     <site-nav />
@@ -10,11 +24,13 @@
 </template>
 
 <script>
-import SiteNav from '@/components/SiteNav';
+import SiteNav from "@/components/SiteNav";
+import Logo from "~/components/Logo.vue";
 
 export default {
   components: {
     SiteNav,
+    Logo,
   },
   data() {
     return {
@@ -25,8 +41,7 @@ export default {
 };
 </script>
 <style>
-
-  .container {
-    background-color: transparent;
-  }
+.container {
+  background-color: transparent;
+}
 </style>
