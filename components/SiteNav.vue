@@ -14,14 +14,13 @@
       </v-btn>
 
       <!-- <v-btn
-        color="teal"
+        color="purple darken-4"
         flat
-        value="/jobs"
         nuxt
-        to="/jobs"
+        to="/signup"
       >
-        <span>Jobs</span>
-        <v-icon>favorite</v-icon>
+        <span>Signup</span>
+        <v-icon>person</v-icon>
       </v-btn> -->
     </v-bottom-nav>
 </template>

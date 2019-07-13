@@ -14,11 +14,10 @@
           d-block
           class="headline text-xs-center"
         >
-          Volunteer Now
+          Signup
         </v-card-title>
         <v-card-text>
-          <p>Our idea is still taking a shape. Subscribe to updates below to hear about the result!</p>
-          <mailchimp-form />
+          <signup-form />
         </v-card-text>
         <v-card-actions>
         </v-card-actions>
@@ -26,20 +25,14 @@
     </v-flex>
   </v-layout>
 </template>
-
 <script>
 import Logo from "~/components/Logo.vue";
-import MailchimpForm from '~/components/MailchimpForm.vue';
-import {fireDb} from '~/plugins/firebase.js'
+import SignupForm from "~/components/SignupForm.vue";
 
 export default {
-  components: {
-    Logo,
-    MailchimpForm,
-  },
+  name: "SignupPage",
+
+  components: { Logo, SignupForm },
 
 };
 </script>
-<style>
-
-</style>

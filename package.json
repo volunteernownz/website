@@ -12,8 +12,9 @@
     "golive": "git push pages `git subtree split --prefix dist master`:master --force"
   },
   "dependencies": {
-    "@nuxtjs/vuetify": "0.5.5",
     "@nuxtjs/pwa": "^2.6.0",
+    "@nuxtjs/vuetify": "0.5.5",
+    "firebase": "^6.3.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
