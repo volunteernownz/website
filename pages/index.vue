@@ -4,7 +4,7 @@
       d-block
       class="headline text-xs-center"
     >
-      Volunteer Now
+      Volunteer Now NZ
     </v-card-title>
     <v-card-text>
       <p>Our idea is still taking a shape. Subscribe to updates below to hear about the result!</p>
