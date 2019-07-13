@@ -1,11 +1,12 @@
 <template>
-  <v-form>
+  <v-form @submit.prevent="signup">
     <v-container class="pa-0">
       <v-layout>
         <v-flex xs12 md4>
           <v-text-field placeholder="email" v-model="email" />
-          <v-text-field type="password" v-model="password" placeholder="Password" />
-          <v-btn @click="signup">Sign Up</v-btn>
+          <v-text-field type="password" v-model="password" placeholder="password" />
+          <v-text-field placeholder="name" v-model="name" />
+          <v-btn type="submit">Sign Up</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -19,19 +20,36 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      name: ''
     }
   },
   methods: {
     signup: function() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-        (user) => {
-          this.$router.replace('/')
+      let auth = firebase.auth()
+      auth.createUserWithEmailAndPassword(this.email, this.password).then(
+        (success) => {
+          let user = auth.currentUser;
+          firebase
+            .firestore()
+            .collection("user")
+            .doc(user.uid)
+            .set({
+              name: this.name
+            })
+            .then(
+              (success) => {
+                this.$router.replace('/')
+              })
+            .catch(
+              (err) => {
+                alert('Error updating profile. ' + err.message)
+              });
         },
         (err) => {
           alert('Oops. ' + err.message)
         }
-      );
+      )
     }
   }
 }

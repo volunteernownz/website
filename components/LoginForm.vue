@@ -4,7 +4,7 @@
       <v-layout>
         <v-flex xs12 md4>
           <v-text-field placeholder="email" v-model="email" />
-          <v-text-field type="password" v-model="password" placeholder="Password" />
+          <v-text-field type="password" v-model="password" placeholder="password" />
           <v-btn @click="login">Login</v-btn>
         </v-flex>
       </v-layout>
