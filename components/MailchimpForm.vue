@@ -21,7 +21,7 @@
             name="EMAIL"
             class="email"
             id="mce-EMAIL"
-            placeholder="email address"
+            placeholder="email"
             required
            />
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
