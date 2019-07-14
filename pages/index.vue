@@ -9,8 +9,8 @@
     <v-card>
       <v-card-title primary-title>
           <div>
-            <div class="headline">Three Planting - Conservation Volunteers NZ</div>
-            <span>Saturday 29th July 2019 09:00-10:00 at Mt. Victoria - Ellice Street, Wellington</span>
+            <div class="headline">Tree Planting - Conservation Volunteers NZ</div>
+            <span>Saturday 20th July 2019 9:30 AM - 1:00 PM at Mt. Victoria - Ellice Street, Wellington</span>
           </div>
       </v-card-title>
       <v-list-tile-content>
