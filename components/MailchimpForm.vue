@@ -15,7 +15,6 @@
         <v-layout>
           <v-flex xs12 md4>
         <div id="mc_embed_signup_scroll">
-          <label for="mce-EMAIL">Stay in touch</label>
           <v-text-field
             type="email"
             value=""
