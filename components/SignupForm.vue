@@ -6,7 +6,9 @@
           <v-text-field placeholder="email" v-model="email" />
           <v-text-field type="password" v-model="password" placeholder="password" />
           <v-text-field placeholder="name" v-model="name" />
-          <v-btn type="submit">Sign Up</v-btn>
+          <v-btn color="primary" dark large type="submit">Sign Up</v-btn>
+          <v-divider />
+          <v-btn color="primary" dark large @click="googleSignup">Signup with Google</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -25,6 +27,31 @@ export default {
     }
   },
   methods: {
+    checkGoogleSignup()  {
+      console.log("Check google")
+      firebase.auth().getRedirectResult().then(function(result) {
+        let user = result.user;
+        if (user) {
+          window.location.href = "/"
+        }
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
+    },
+    googleSignup() {
+      console.log("Google Signup")
+      const google = new firebase.auth.GoogleAuthProvider();
+      let auth = firebase.auth()
+      auth.signInWithRedirect(google)
+        .then(
+          (result) => {
+            console.log("Signup with google")
+        })
+        .catch(
+          (err) => {
+            alert('Oops. ' + err.message)
+        })
+    },
     signup: function() {
       let auth = firebase.auth()
       auth.createUserWithEmailAndPassword(this.email, this.password).then(
@@ -51,6 +78,9 @@ export default {
         }
       )
     }
+  },
+  beforeMount() {
+    this.checkGoogleSignup()
   }
 }
 </script>
