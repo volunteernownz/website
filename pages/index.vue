@@ -2,7 +2,7 @@
   <v-card class="my-4">
     <v-card-title primary-title>
       <div>
-        <div class="headline">Volunteer Now</div>
+        <div class="headline">Volunteer Now NZ</div>
         <span>Be a part of something bigger than yourself!</span>
       </div>
     </v-card-title>
@@ -17,8 +17,10 @@
         <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Mt%20Victorial%20Ellice%20St%20wellington&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/best-wordpress-themes/"></a></div><style>.mapouter{position:relative;text-align:right;height:200px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:200px;width:600px;}</style></div>
       </v-list-tile-content>
       <v-list-tile-content>
-        <v-btn color="primary" dark large v-if="showSignup === false"  @click="toggleForm">Signup for this Event</v-btn>
-        <signup-form v-if="showSignup" :noorg="true" />
+        <div class="signupform">
+          <v-btn color="primary" dark large v-if="showSignup === false"  @click="toggleForm">Signup for this Event</v-btn>
+          <signup-form v-if="showSignup" :noorg="true" />
+        </div>
       </v-list-tile-content>
     </v-card>
     <v-card>
@@ -58,5 +60,9 @@ export default {
   },
 };
 </script>
+
 <style>
+.signupform {
+  padding-left: 16px;
+}
 </style>
