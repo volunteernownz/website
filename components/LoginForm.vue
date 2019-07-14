@@ -6,6 +6,8 @@
           <v-text-field placeholder="email" v-model="email" />
           <v-text-field type="password" v-model="password" placeholder="password" />
           <v-btn @click="login">Login</v-btn>
+          <v-divider />
+          <v-btn color="primary" dark large @click="googleLogin">Login with Google</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
@@ -23,6 +25,31 @@ export default {
     }
   },
   methods: {
+    checkGoogleLogin()  {
+      console.log("Check google")
+      firebase.auth().getRedirectResult().then(function(result) {
+        let user = result.user;
+        if (user) {
+          window.location.href = "/"
+        }
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
+    },
+    googleLogin() {
+      console.log("Google Login")
+      const google = new firebase.auth.GoogleAuthProvider();
+      let auth = firebase.auth()
+      auth.signInWithRedirect(google)
+        .then(
+          (result) => {
+            console.log("Login with google")
+        })
+        .catch(
+          (err) => {
+            alert('Oops. ' + err.message)
+        })
+    },
     login: function() {
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         (user) => {
@@ -33,6 +60,9 @@ export default {
         }
       );
     }
+  },
+  beforeMount() {
+    this.checkGoogleLogin()
   }
 }
 </script>
