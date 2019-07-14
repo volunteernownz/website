@@ -17,6 +17,7 @@
   </v-form>
 </template>
 <script>
+import firebase from 'firebase';
 import {fireDb} from '~/plugins/firebase.js';
 
 export default {
@@ -43,10 +44,9 @@ export default {
         author: uid,
       };
 
-      fireDb.collection('job').add(dataSave).then((r) => {
-        console.log(r);
+      fireDb.collection('job').add(dataSave).then((jobRef) => {
         fireDb.collection('user').doc(uid).set({
-          jobs: [],
+          jobs: firebase.firestore.FieldValue.arrayUnion(jobRef.id),
         }, { merge: true });
         this.snackbar = true;
         setTimeout(() => this.$router.push('/dashboard'), 1000);

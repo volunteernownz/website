@@ -14,7 +14,7 @@
       xs12
       md-7
     >
-      <job-list />
+      <job-list :organisation="($store.state.user.is_org ? $store.state.user.uid : '')" />
     </v-flex>
   </v-layout>
 </template>
