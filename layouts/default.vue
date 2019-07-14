@@ -38,10 +38,6 @@ export default {
       fixed: true
     };
   },
-
-  beforeCreate() {
-    this.$store.commit('user/rehydrate');
-},
 };
 </script>
 <style>

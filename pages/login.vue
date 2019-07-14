@@ -9,10 +9,9 @@
   </v-card>
 </template>
 <script>
-import Logo from "~/components/Logo.vue";
 import LoginForm from "~/components/LoginForm.vue";
 export default {
   name: "LoginPage",
-  components: { Logo, LoginForm },
+  components: { LoginForm },
 };
 </script>

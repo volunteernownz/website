@@ -12,16 +12,16 @@
           primary-title
           class="headline py-0"
         >
-          User Name
+          {{ $store.state.user.name }}
         </v-card-title>
         <v-card-text>
           <em>{{ $store.state.user.email }}</em><br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, vero.
+          <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, vero. -->
         </v-card-text>
       </v-flex>
     </v-layout>
     <v-card-actions>
-      <!-- <v-btn>Edit profile</v-btn> -->
+      <v-btn nuxt to="/new_opportunity" v-if="$store.state.user.is_org">Add opportunity</v-btn>
     </v-card-actions>
   </v-card>
 </template>

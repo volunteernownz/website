@@ -8,9 +8,9 @@
         <v-flex xs12 md4>
           <v-text-field placeholder="email" v-model="email" />
           <v-text-field type="password" v-model="password" placeholder="password" />
-          <v-btn type="submit">Login</v-btn>
-          <v-divider />
-          <v-btn color="primary" dark large @click="googleLogin">Login with Google</v-btn>
+          <v-btn type="submit" :loading="loading">Login</v-btn>
+          <!-- <v-divider /> -->
+          <!-- <v-btn color="primary" dark large @click="googleLogin">Login with Google</v-btn> -->
         </v-flex>
       </v-layout>
     </v-container>
@@ -18,6 +18,7 @@
 </template>
 <script>
 import firebase from 'firebase';
+import {fireDb} from '~/plugins/firebase.js';
 
 export default {
   name: 'LoginForm',
@@ -30,39 +31,43 @@ export default {
     }
   },
   methods: {
-    checkGoogleLogin()  {
-      console.log("Check google")
-      firebase.auth().getRedirectResult().then(function(result) {
-        let user = result.user;
-        if (user) {
-          window.location.href = "/"
-        }
-      }).catch((err) => {
-        alert('Oops. ' + err.message)
-      })
-    },
-    googleLogin() {
-      console.log("Google Login")
-      const google = new firebase.auth.GoogleAuthProvider();
-      let auth = firebase.auth()
-      auth.signInWithRedirect(google)
-        .then(
-          (result) => {
-            console.log("Login with google")
-        })
-        .catch(
-          (err) => {
-            alert('Oops. ' + err.message)
-        })
-    },
+    // checkGoogleLogin()  {
+    //   console.log("Check google")
+    //   firebase.auth().getRedirectResult().then(function(result) {
+    //     let user = result.user;
+    //     if (user) {
+    //       window.location.href = "/"
+    //     }
+    //   }).catch((err) => {
+    //     alert('Oops. ' + err.message)
+    //   })
+    // },
+    // googleLogin() {
+    //   console.log("Google Login")
+    //   const google = new firebase.auth.GoogleAuthProvider();
+    //   let auth = firebase.auth()
+    //   auth.signInWithRedirect(google)
+    //     .then(
+    //       (result) => {
+    //         console.log("Login with google")
+    //     })
+    //     .catch(
+    //       (err) => {
+    //         alert('Oops. ' + err.message)
+    //     })
+    // },
     login: function() {
       this.loading = true;
       this.warningValue = false;
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         ({user}) => {
-          this.$store.commit('user/loginUser', { ...user, user_type: 'org' });
-          this.$router.push('/dashboard');
-          this.loading = false;
+          fireDb.collection('user').doc(user.uid).get().then((ref) => {
+            if (!ref.exists) { console.error('No user data!'); return; }
+            const dbUser = ref.data();
+            this.$store.commit('user/loginUser', { ...user, ...dbUser });
+            this.$router.push('/dashboard');
+            this.loading = false;
+          });
         },
         (err) => {
           this.warningValue = 'Oops. ' + err.message;
@@ -71,8 +76,8 @@ export default {
       );
     }
   },
-  beforeMount() {
-    this.checkGoogleLogin()
-  }
+  // beforeMount() {
+  //   this.checkGoogleLogin()
+  // }
 }
 </script>

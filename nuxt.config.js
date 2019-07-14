@@ -36,7 +36,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/firebase.js'
+    { src: '~/plugins/vuex-persist', ssr: false },
+    '~/plugins/firebase.js',
   ],
   /*
   ** Nuxt.js modules

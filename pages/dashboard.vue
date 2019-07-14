@@ -8,7 +8,7 @@
       md5
       class="mx-3"
     >
-      <user-profile />
+      <user-profile v-if="$store.state.user.uid" />
     </v-flex>
     <v-flex
       xs12
@@ -29,7 +29,7 @@ export default {
     JobList,
   },
 
-  beforeCreate() {
+  afterCreate() {
     if (!this.$store.state.user.email) {
       this.$router.replace('/login');
     }
