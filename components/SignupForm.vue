@@ -3,9 +3,9 @@
     <v-container class="pa-0">
       <v-layout>
         <v-flex>
+          <v-text-field placeholder="name" v-model="name" />
           <v-text-field placeholder="email" v-model="email" />
           <v-text-field type="password" v-model="password" placeholder="password" />
-          <v-text-field placeholder="name" v-model="name" />
           <v-checkbox v-if="!noorg" v-model="org" label="We are organisation" />
           <v-btn color="primary" dark large type="submit">Sign Up</v-btn>
           <v-divider />
