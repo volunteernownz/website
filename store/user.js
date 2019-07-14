@@ -26,6 +26,7 @@ export const state = () => ({
   name: '',
   surname: '',
   email: '',
+  user_type: '',
 });
 
 export const mutations = {

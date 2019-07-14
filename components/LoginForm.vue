@@ -33,7 +33,7 @@ export default {
       this.warningValue = false;
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         ({user}) => {
-          this.$store.commit('user/loginUser', user);
+          this.$store.commit('user/loginUser', { ...user, user_type: 'org' });
           this.$router.push('/dashboard');
           this.loading = false;
         },

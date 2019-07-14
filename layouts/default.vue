@@ -19,7 +19,7 @@
         </v-layout>
       </v-container>
     </v-content>
-    <site-nav />
+    <site-nav :isLogged="!!$store.state.user.email" />
   </v-app>
 </template>
 
@@ -39,9 +39,9 @@ export default {
     };
   },
 
-  created() {
+  beforeCreate() {
     this.$store.commit('user/rehydrate');
-  },
+},
 };
 </script>
 <style>

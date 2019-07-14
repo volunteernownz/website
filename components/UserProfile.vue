@@ -21,7 +21,7 @@
       </v-flex>
     </v-layout>
     <v-card-actions>
-      <v-btn>Edit profile</v-btn>
+      <!-- <v-btn>Edit profile</v-btn> -->
     </v-card-actions>
   </v-card>
 </template>
